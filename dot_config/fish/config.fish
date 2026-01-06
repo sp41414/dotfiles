@@ -10,8 +10,8 @@ fish_add_path /opt/homebrew/bin
 
 starship init fish | source
 
-if not set -q TMUX
-    tmux
+if status is-interactive; and not set -q TMUX; and not set -q SSH_TTY
+    exec tmux new-session -A -s main
 end
 
 set PATH "$PATH":"$HOME/.config/scripts"
