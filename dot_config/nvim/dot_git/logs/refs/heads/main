@@ -1,1 +1,2 @@
 0000000000000000000000000000000000000000 9a320eb17c36673888dd258d301ca3d599eb7d9e archie <archie@archie.(none)> 1767600897 +0400	clone: from https://github.com/sp41414/nvim-config
+9a320eb17c36673888dd258d301ca3d599eb7d9e 05f3b4f7da6dc8ad87c6b2aed487c029ab6948e5 sp41414 <134581084+sp41414@users.noreply.github.com> 1768045344 +0400	commit: feat: remove autopairs
