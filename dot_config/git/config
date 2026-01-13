@@ -3,7 +3,7 @@
 [alias]
 	co = checkout
 	br = branch
-	cm = commit -m
+	cm = commit -S -m
 	st = status
     lg = log --oneline --graph --decorate
 [init]
@@ -27,3 +27,9 @@
 [rerere]
 	enabled = true           # Record and reuse conflict resolutions
 	autoupdate = true        # Apply stored conflict resolutions automatically
+[user]
+	name = sp41414
+	email = 134581084+sp41414@users.noreply.github.com
+	signingkey = /home/archie/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
