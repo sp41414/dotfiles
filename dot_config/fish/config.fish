@@ -20,7 +20,13 @@ bind \ct 'sudo block'
 
 alias ls 'eza --icons'
 alias clear "printf '\033[2J\033[3J\033[1;1H'"
-alias vim nvim
+function vim
+    if count $argv >/dev/null
+        nvim $argv
+    else
+        nvim .
+    end
+end
 alias venv "source .venv/bin/activate.fish"
 alias src "source $HOME/.config/fish/config.fish"
 
