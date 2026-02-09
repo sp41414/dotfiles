@@ -8,10 +8,6 @@ end
 
 starship init fish | source
 
-if status is-interactive; and not set -q TMUX; and not set -q SSH_TTY
-    exec tmux new-session -A -s main
-end
-
 set PATH "$PATH":"$HOME/.config/scripts"
 bind \cf tmux-sessionizer
 bind \ct 'sudo block'
@@ -50,3 +46,6 @@ set -x NODE_ENV development
 
 fish_add_path $HOME/go/bin/
 fish_add_path $HOME/.cargo/bin/
+
+# opencode
+fish_add_path /home/fedora/.opencode/bin
