@@ -29,3 +29,6 @@
 	autoupdate = true        # Apply stored conflict resolutions automatically
 [gpg]
 	format = ssh
+[user]
+	name = sp41414
+	email = 134581084+sp41414@users.noreply.github.com
