@@ -1,0 +1,156 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty
+set $menu wmenu-run
+
+xwayland enable
+
+input type:keyboard {
+    xkb_layout us,ara
+    xkb_options "grp:alt_shift_toggle"
+    repeat_delay 200
+    repeat_rate 30
+}
+
+# Bindings
+    bindsym $mod+Return exec $term
+    bindsym $mod+q kill
+    bindsym $mod+d exec $menu
+    # binbows
+    bindsym Mod1+Tab focus next
+
+    floating_modifier $mod normal
+
+    bindsym $mod+Shift+c reload
+
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+    bindsym $mod+e layout toggle split
+    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+space focus mode_toggle
+    bindsym $mod+a focus parent
+    bindsym $mod+w exec librewolf
+
+# Borders
+    default_border none
+    hide_edge_borders --i3 smart
+    smart_borders smart
+
+# Scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    bindsym $mod+minus scratchpad show
+
+# Resizing containers
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Utilities
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Special keybind to take a screenshot with grim
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
+include /etc/sway/config.d/*
+include ./monitors
+include ./exec
+
+gaps inner 2px
+gaps outer 2px
+default_border pixel 2
+default_floating_border pixel 2
+
+# cursor
+seat seat0 xcursor_theme BreezeX-Black 32
+
+# status bar
+bar {
+    swaybar_command swaybar
+    position top
+    workspace_min_width 48
+    tray_padding 4
+    font pango:BigBlueTermPlus Nerd Font 12
+    colors {
+        background #0b0b12
+        statusline #C1C9E6
+        separator  #464957
+        focused_workspace  #FAB770 #FAB770 #0b0b12
+        inactive_workspace #0b0b12 #0b0b12 #7D8296
+        active_workspace   #1D1E29 #1D1E29 #C1C9E6
+        urgent_workspace   #E66767 #E66767 #C1C9E6
+    }
+}
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #464957 #0b0b12 #FAB770 #FAB770   #FAB770
+client.focused_inactive #1D1E29 #1D1E29 #7D8296 #1D1E29   #1D1E29
+client.unfocused        #11111a #11111a #464957 #11111a   #11111a
+client.urgent           #E66767 #0b0b12 #E66767 #E66767   #E66767
+client.placeholder      #11111a #11111a #C1C9E6 #11111a   #11111a

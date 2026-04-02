@@ -41,6 +41,16 @@ function normalize
     ffmpeg -i $argv[1] -af loudnorm=I=-14:TP=-1.0:LRA=11 -c:v copy -c:a aac -b:a 192k output.mp4
 end
 
+# Yazi
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 set -gx nvm_default_version lts
 set -x NODE_ENV development
 set -x MANPAGER "nvim +Man!"
