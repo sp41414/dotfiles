@@ -1,0 +1,34 @@
+let mapleader = " "
+
+" Normal mode
+nnoremap ; :
+nnoremap <leader>pv :action ActivateProjectToolWindow<CR>
+nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <leader>d "_d
+nnoremap <C-j> :action GotoNextError<CR>zz
+nnoremap <C-k> :action GotoPreviousError<CR>zz
+nnoremap Q <nop>
+nnoremap <leader>k :action Forward<CR>zz
+nnoremap <leader>j :action Back<CR>zz
+nnoremap <leader>s :action Replace<CR>
+nnoremap <leader>y "+y
+nnoremap <leader>u :action EditSource<CR>
+nnoremap <leader>cl :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>co :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader><leader> :w<CR>
+
+" Visual mode
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+vnoremap <leader>d "_d
+vnoremap <leader>y "+y
+
+" Insert mode
+inoremap <C-c> <Esc>
+
+" Operator pending mode
+onoremap <leader>p "_dP
