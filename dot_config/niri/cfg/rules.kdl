@@ -1,0 +1,61 @@
+window-rule {
+    clip-to-geometry true
+    geometry-corner-radius 12
+}
+
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^[Ss]team$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    match title="^Picture in picture$"
+    open-floating true
+    default-column-width { 580; }
+    default-window-height { 370; }
+}
+
+window-rule {
+    match title=r#"^Open File$"#
+    match title=r#"^Select a File$"#
+    match title=r#"^Open Folder$"#
+    match title=r#"^Save As$"#
+    match app-id=r#"^org\.freedesktop\.impl\.portal\..*$"#
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    match title=r#"^Screen Sharing$"#
+    match title=r#"^is sharing your screen\.$"#
+    open-floating true
+}
+
+window-rule {
+    match is-window-cast-target=true
+    focus-ring { active-color "#f38ba8"; }
+    border { active-color "#f38ba8"; }
+}
+
+window-rule {
+    match app-id=r#"^steam$"# title=r#"^Friends List$"#
+    match app-id=r#"^steam$"# title=r#"^Steam - News$"#
+    match app-id=r#"^steam$"# title=r#"^Settings$"#
+    match app-id=r#"^steam$"# title=r#".*- Chat$"#
+    open-floating true
+}
+
+// april fools window bob float feature
+window-rule {
+    match is-floating=true
+
+    baba-is-float true
+}

@@ -1,0 +1,19 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ar"
+            options "grp:alt_shift_toggle"
+        }
+        repeat-delay 200
+        repeat-rate 30
+
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    focus-follows-mouse
+}
