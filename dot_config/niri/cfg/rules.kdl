@@ -18,8 +18,6 @@ window-rule {
 window-rule {
     match title="^Picture in picture$"
     open-floating true
-    default-column-width { 580; }
-    default-window-height { 370; }
 }
 
 window-rule {
