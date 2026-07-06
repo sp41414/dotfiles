@@ -1,0 +1,9 @@
+[font]
+size = 20.0
+normal = { family = "Maple Mono NF", style = "W600" }
+bold = { family = "Maple Mono NF", style = "W700" }
+italic = { family = "Maple Mono NF", style = "W600 Italic" }
+bold_italic = { family = "Maple Mono NF", style = "W700 Italic" }
+
+[font.features]
+"Maple Mono NF" = ["+cv04", "+cv32", "+cv33", "+zero", "+calt"]

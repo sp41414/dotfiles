@@ -22,6 +22,13 @@ function vim
     end
 end
 
+function nv
+    if count $argv >/dev/null
+        neovide $argv
+    else neovide .
+    end
+end
+
 alias venv "source .venv/bin/activate.fish"
 alias src "source $HOME/.config/fish/config.fish"
 
