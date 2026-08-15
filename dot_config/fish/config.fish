@@ -11,7 +11,7 @@ starship init fish | source
 fish_add_path $HOME/.config/scripts
 bind \cf tmux-sessionizer
 
-alias ls 'eza --icons'
+alias ls 'eza --icons=auto'
 alias clear "printf '\033[2J\033[3J\033[1;1H'"
 
 function vim

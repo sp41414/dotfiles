@@ -85,6 +85,9 @@ binds {
     // Clipboard
     Mod+V { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true"; }
 
+    // Clipping with gpu-screen-recorder
+    "F8" { spawn "killall" "-SIGUSR1" "gpu-screen-recorder"; }
+
     // Exit / power control
     CTRL+ALT+Delete { quit; }
     Mod+Alt+P { power-off-monitors; }

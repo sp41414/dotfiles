@@ -52,8 +52,10 @@ window-rule {
 }
 
 // april fools window bob float feature
+/*
 window-rule {
     match is-floating=true
 
     baba-is-float true
 }
+*/
